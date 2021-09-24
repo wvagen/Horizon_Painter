@@ -11,6 +11,8 @@ public class Painter_Pen : MonoBehaviour
     public Painter_Manager painterMan;
     public Image myImg;
 
+    public bool isPen = true;
+
     Sprite initSprite;
 
     private void Start()
@@ -21,7 +23,16 @@ public class Painter_Pen : MonoBehaviour
     public void Pen_Selection()
     {
         painterMan.Set_Current_Pen(this);
-
+        if (isPen && !painterMan.isPenSelected)
+        {
+            painterMan.isPenSelected = true;
+            painterMan.Select_Random_Color();
+        }
+        
+        else if (!isPen)
+        {
+            painterMan.isPenSelected = false;
+        }
     }
 
     public void Pen_Selection_Sprite_Change(bool isSelected)

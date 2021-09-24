@@ -1,0 +1,242 @@
+fileFormatVersion: 2
+guid: 22dc7636356f0af46b43f0282a915671
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5000468903866932744
+    second: Graphics_Settings_SpriteSheet_5_0
+  - first:
+      213: -7057415226299795334
+    second: Graphics_Settings_SpriteSheet_5_1
+  - first:
+      213: 7122645781258798246
+    second: Graphics_Settings_SpriteSheet_5_2
+  - first:
+      213: -2660413517019603888
+    second: Graphics_Settings_SpriteSheet_5_3
+  - first:
+      213: 6950243472314728713
+    second: Graphics_Settings_SpriteSheet_5_4
+  - first:
+      213: 613429126325290858
+    second: Graphics_Settings_SpriteSheet_5_5
+  - first:
+      213: -4380403392861289436
+    second: Graphics_Settings_SpriteSheet_5_6
+  - first:
+      213: 8405661638550030197
+    second: Graphics_Settings_SpriteSheet_5_7
+  - first:
+      213: 8134504209844308341
+    second: Graphics_Settings_SpriteSheet_5_8
+  - first:
+      213: 4970446146452382367
+    second: Graphics_Settings_SpriteSheet_5_9
+  - first:
+      213: -6177035669669231786
+    second: Graphics_Settings_SpriteSheet_5_10
+  - first:
+      213: 997532928268871861
+    second: Graphics_Settings_SpriteSheet_5_11
+  - first:
+      213: 3145733225937657638
+    second: Graphics_Settings_SpriteSheet_5_12
+  - first:
+      213: -4887742636849124148
+    second: Graphics_Settings_SpriteSheet_5_13
+  - first:
+      213: -7548438166528106421
+    second: Graphics_Settings_SpriteSheet_5_14
+  - first:
+      213: -8660442352733243359
+    second: Graphics_Settings_SpriteSheet_5_15
+  - first:
+      213: -1914392192774632907
+    second: Graphics_Settings_SpriteSheet_5_16
+  - first:
+      213: -4988647967354324011
+    second: Graphics_Settings_SpriteSheet_5_17
+  - first:
+      213: -1956158571162602046
+    second: Graphics_Settings_SpriteSheet_5_18
+  - first:
+      213: 4105537676591984327
+    second: Graphics_Settings_SpriteSheet_5_19
+  - first:
+      213: 4213183361046967755
+    second: Graphics_Settings_SpriteSheet_5_20
+  - first:
+      213: 2051018511594388441
+    second: Graphics_Settings_SpriteSheet_5_21
+  - first:
+      213: 6766217508917839553
+    second: Graphics_Settings_SpriteSheet_5_22
+  - first:
+      213: 4656712270134921406
+    second: Graphics_Settings_SpriteSheet_5_23
+  - first:
+      213: 790417696737971383
+    second: Graphics_Settings_SpriteSheet_5_24
+  - first:
+      213: 2747675610534821693
+    second: Graphics_Settings_SpriteSheet_5_25
+  - first:
+      213: 870090537669502820
+    second: Graphics_Settings_SpriteSheet_5_26
+  - first:
+      213: -1441326646474663406
+    second: Graphics_Settings_SpriteSheet_5_27
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Graphics_Settings_SpriteSheet_5_0
+      rect:
+        serializedVersion: 2
+        x: 630
+        y: 0
+        width: 2013
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80e106579fb356540800000000000000
+      internalID: 5000468903866932744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Graphics_Settings_SpriteSheet_5_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 131
+        width: 3282
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a78b7f35e360f0e90800000000000000
+      internalID: -7057415226299795334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
