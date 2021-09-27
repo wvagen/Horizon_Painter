@@ -13,6 +13,8 @@ public class Painter_Pen : MonoBehaviour
 
     public bool isPen = true;
 
+    bool isSelected = false;
+
     Sprite initSprite;
 
     private void Start()
@@ -37,9 +39,14 @@ public class Painter_Pen : MonoBehaviour
 
     public void Pen_Selection_Sprite_Change(bool isSelected)
     {
-        if (isSelected) myImg.sprite = selectedSprite;
+        this.isSelected = isSelected;
+    }
+
+    private void Update()
+    {
+        if (isSelected)myImg.sprite = selectedSprite;
         else myImg.sprite = initSprite;
     }
-    
+
 
 }

@@ -34,6 +34,8 @@ public class Painter_Manager : MonoBehaviour
     bool isMirrorHorizontal = false;
     bool isMirrorHorizontalAndVertical = false;
 
+    int orderInLayerIndex = 10;
+
     private void Start()
     {
         Level_Manager();
@@ -160,6 +162,7 @@ public class Painter_Manager : MonoBehaviour
         currentPoint.GetComponent<TrailRenderer>().endColor = this.currentColorBtn.Get_Color();
 
         currentPoint.GetComponent<TrailRenderer>().numCapVertices = 10;
+        currentPoint.GetComponent<TrailRenderer>().sortingOrder = orderInLayerIndex;
 
         currentPoint.GetComponent<TrailRenderer>().startWidth = this.currentPen.penSize;
         currentPoint.GetComponent<TrailRenderer>().endWidth = this.currentPen.penSize;
@@ -176,6 +179,7 @@ public class Painter_Manager : MonoBehaviour
             currentPoint1.GetComponent<TrailRenderer>().endColor = this.currentColorBtn.Get_Color();
 
             currentPoint1.GetComponent<TrailRenderer>().numCapVertices = 10;
+            currentPoint1.GetComponent<TrailRenderer>().sortingOrder = orderInLayerIndex;
 
             currentPoint1.GetComponent<TrailRenderer>().startWidth = this.currentPen.penSize;
             currentPoint1.GetComponent<TrailRenderer>().endWidth = this.currentPen.penSize;
@@ -192,6 +196,7 @@ public class Painter_Manager : MonoBehaviour
             currentPoint1.GetComponent<TrailRenderer>().endColor = this.currentColorBtn.Get_Color();
 
             currentPoint1.GetComponent<TrailRenderer>().numCapVertices = 10;
+            currentPoint1.GetComponent<TrailRenderer>().sortingOrder = orderInLayerIndex;
 
             currentPoint1.GetComponent<TrailRenderer>().startWidth = this.currentPen.penSize;
             currentPoint1.GetComponent<TrailRenderer>().endWidth = this.currentPen.penSize;
@@ -210,12 +215,13 @@ public class Painter_Manager : MonoBehaviour
                 currentPoints[i].GetComponent<TrailRenderer>().endColor = this.currentColorBtn.Get_Color();
 
                 currentPoints[i].GetComponent<TrailRenderer>().numCapVertices = 10;
+                currentPoints[i].GetComponent<TrailRenderer>().sortingOrder = orderInLayerIndex;
 
                 currentPoints[i].GetComponent<TrailRenderer>().startWidth = this.currentPen.penSize;
                 currentPoints[i].GetComponent<TrailRenderer>().endWidth = this.currentPen.penSize;
             }
         }
-
+        orderInLayerIndex++;
     }
 
     Vector2 Mirror_Effect_Vertical_Pos(Vector2 pointPos)
