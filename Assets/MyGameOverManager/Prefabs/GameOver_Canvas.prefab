@@ -4766,7 +4766,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 66b296365f50942478b2356b6139d549, type: 3}
   - {fileID: 8300000, guid: 701e8d1e8f742014a85b9545a6db31c3, type: 3}
   - {fileID: 8300000, guid: b6559bed2944695458b51b63ba06d2b5, type: 3}
-  levelMapGameName: painter
+  levelMapGameName: game_painter
   isReachedLastLevel: 0
 --- !u!82 &3248462991219915204
 AudioSource:
