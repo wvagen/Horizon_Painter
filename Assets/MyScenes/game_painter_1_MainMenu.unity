@@ -360,10 +360,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3267027090997369311, guid: 4cc9a30f6cfa46a4b970f18cbdc5b536,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3650143337725289210, guid: 4cc9a30f6cfa46a4b970f18cbdc5b536,
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4415531845983325645, guid: 4cc9a30f6cfa46a4b970f18cbdc5b536,
+        type: 3}
+      propertyPath: m_Text
+      value: "\u0647\u064A\u0651\u0627 \u0641\u0644\u0646\u0631\u0633\u0645"
       objectReference: {fileID: 0}
     - target: {fileID: 4526748373849571906, guid: 4cc9a30f6cfa46a4b970f18cbdc5b536,
         type: 3}

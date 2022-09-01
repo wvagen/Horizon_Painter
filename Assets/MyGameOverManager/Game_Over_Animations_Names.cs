@@ -17,5 +17,11 @@ public class Game_Over_Animations_Names
     public static string Game_Over_Manager_Info_Panel_Expand_Anim = "Game_Over_Manager_Info_Panel_Expand_Anim";
     public static string Game_Over_Manager_Info_Panel_Collapse_Anim = "Game_Over_Manager_Info_Panel_Collapse_Anim";
     public static string Game_Over_Manager_Level_Complete_Panel_Anim = "Game_Over_Manager_Level_Complete_Panel_Anim";
+    public static string Win_Anim = "Win_Panel_Animation";
+    public static string Lose_Anim = "Lose_Panel_Animation";
+    public static string Pause_Anim ="Open_Pause_Panel_Anim";
+    public static string Play_Anim = "Close_Pause_Panel_Anim";
+    public static string Intro_Anim = "GameOver_IntroScene";
+    public static string Outro_anim = "GameOver_OutroScene";
 
 }

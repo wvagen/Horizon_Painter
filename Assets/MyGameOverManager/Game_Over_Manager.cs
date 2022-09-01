@@ -29,9 +29,9 @@ public class Game_Over_Manager : MonoBehaviour
     public Sprite infiniteModeLockedSprite;
     public Text inifiniteModeTxt;
 
-    public static int levelIndex = 0; //This will represent the levelIndex of a dlc game
+    public static int levelIndex; //This will represent the levelIndex of a dlc game
 
-    public Image musicImg, sfxImg, musicFromOptionsImg, sfxFromOptionsImg;
+    public GameObject taggleMusicOn, tagglemusicOff, taggleSfxOn, taggleSfxOff;
     public Image bestScoreMainMenuBtnImg, infiniteModeBtnImg;
 
     public Text bestScoreMainMenuValueTxt, bestScoreInGameValueTxt, ScoreInGameValueTxt;
@@ -56,7 +56,8 @@ public class Game_Over_Manager : MonoBehaviour
 
     float currentTime = 0;
     bool isPaused = false;
-    int timerCounter = 2;
+    bool isYouShouldNotPressThatButtonTwicePressed = false;
+    int timerCounter = 1;
 
     bool isStarScaled = true;
     bool isContainerScaled = false;
@@ -75,6 +76,7 @@ public class Game_Over_Manager : MonoBehaviour
         isOver = false;
         SoundsStats();
         Locked_Btns_Behaviour();
+        myAnim.Play(Game_Over_Animations_Names.Intro_Anim);
     }
 
     void Check_Reached_Levels()
@@ -102,7 +104,7 @@ public class Game_Over_Manager : MonoBehaviour
     public void WinLoseLevelManager(bool isWin)
     {
         isOver = true;
-        myAnim.Play(Game_Over_Animations_Names.Game_Over_Manager_Level_Complete_Panel_Anim);
+
 
         foreach (GameObject o in successGameObjects)
         {
@@ -117,11 +119,20 @@ public class Game_Over_Manager : MonoBehaviour
             star.SetActive(false);
         }
 
-        if (sfxOn)
+
+        if (isWin)
         {
-            if (isWin) myAudioSource.PlayOneShot(successSFX);
-            else myAudioSource.PlayOneShot(failureSFX);
+            myAnim.Play(Game_Over_Animations_Names.Win_Anim);
+            if (sfxOn)
+                myAudioSource.PlayOneShot(successSFX);
         }
+        else
+        {
+            myAnim.Play(Game_Over_Animations_Names.Lose_Anim);
+            if (sfxOn)
+                myAudioSource.PlayOneShot(failureSFX);
+        }
+
     }
 
     public void Main_Menu_Best_Score_Btn(bool isOpen)
@@ -185,38 +196,39 @@ public class Game_Over_Manager : MonoBehaviour
 
     public void WinLoseLevelManager(bool isWin, int starsCount)
     {
-        WinLoseLevelManager(true);
+        WinLoseLevelManager(isWin);
         SaveDataManager(starsCount);
+        IsContainerScaledTrigger();
         StartCoroutine(starsAnimation(starsCount));
     }
 
     void SoundsStats()
     {
-        musicOn = (PlayerPrefs.GetInt("Sound_Enabled", 0) == 1);
+        musicOn = (PlayerPrefs.GetInt("Sound_Enabled", 1) == 1);
 
         myMusicPlayer.mute = !musicOn;
         myAudioSource.mute = !sfxOn;
 
         if (musicOn)
         {
-            musicImg.sprite = musicBtnOnSprite;
-            musicFromOptionsImg.sprite = musicBtnOnSprite;
+            taggleMusicOn.SetActive(true);
+            tagglemusicOff.SetActive(false);
         }
         else
         {
-            musicImg.sprite = musicBtnOffSprite;
-            musicFromOptionsImg.sprite = musicBtnOffSprite;
+            taggleMusicOn.SetActive(false);
+            tagglemusicOff.SetActive(true);
         }
 
         if (sfxOn)
         {
-            sfxImg.sprite = sfxBtnOnSprite;
-            sfxFromOptionsImg.sprite = sfxBtnOnSprite;
+            taggleMusicOn.SetActive(true);
+            tagglemusicOff.SetActive(false);
         }
         else
         {
-            sfxImg.sprite = sfxBtnOffSprite;
-            sfxFromOptionsImg.sprite = sfxBtnOffSprite;
+            taggleMusicOn.SetActive(true);
+            tagglemusicOff.SetActive(false);
         }
 
     }
@@ -227,6 +239,7 @@ public class Game_Over_Manager : MonoBehaviour
 
     IEnumerator starsAnimation(int starsCount)
     {
+
         while (!isContainerScaled)
         {
             yield return null;
@@ -249,6 +262,7 @@ public class Game_Over_Manager : MonoBehaviour
         isStarScaled = false;
         Vector2 initScale = star.transform.localScale;
         star.SetActive(true);
+
         star.transform.localScale = Vector2.zero;
         Vector2 wantedScale = initScale * 2;
         float realTimeScaleY = initScale.y;
@@ -283,47 +297,62 @@ public class Game_Over_Manager : MonoBehaviour
         //Don't let the Scene activate until you allow it to
         asyncOperation.allowSceneActivation = false;
         //When the load is still in progress, output the Text and progress bar
+
         while (!asyncOperation.isDone)
         {
-            //Output the current progress
-            loadingFillableImg.fillAmount = asyncOperation.progress;
-
             // Check if the load has finished
             if (asyncOperation.progress >= 0.9f)
             {
                 asyncOperation.allowSceneActivation = true;
             }
-            loadingPanel.SetActive(false);
             yield return null;
         }
     }
 
     public void Start_Game()
     {
-        StartCoroutine(LoadScene(levelMapGameName + "_2_MainGame"));
+        if (!isYouShouldNotPressThatButtonTwicePressed)
+        {
+            isYouShouldNotPressThatButtonTwicePressed = true;
+            StartCoroutine(LoadScene(levelMapGameName + "_2_MainGame"));
+        }
     }
 
     public void HomeBtn()
     {
-        StartCoroutine(LoadScene(levelMapGameName + "_1_MainMenu"));
+        if (!isYouShouldNotPressThatButtonTwicePressed)
+        {
+            isYouShouldNotPressThatButtonTwicePressed = true;
+            StartCoroutine(LoadScene(levelMapGameName + "_1_MainMenu"));
+        }
     }
 
     public void RetryLevel()
     {
-        StartCoroutine(LoadScene(SceneManager.GetActiveScene().path));
+        if (!isYouShouldNotPressThatButtonTwicePressed)
+        {
+            isYouShouldNotPressThatButtonTwicePressed = true;
+            StartCoroutine(LoadScene(SceneManager.GetActiveScene().path));
+        }
     }
 
     public void NextLevel()
     {
-        if (levelIndex == (levelsContainer.childCount-1) || isReachedLastLevel)
+        if (!isYouShouldNotPressThatButtonTwicePressed)
         {
-            Set_Level_As_Finished();
-            Quit();
-        }
-        else
-        {
-            levelIndex++;
-            RetryLevel();
+            isYouShouldNotPressThatButtonTwicePressed = true;
+            if (levelIndex == (levelsContainer.childCount - 1) || isReachedLastLevel)
+            {
+                Set_Level_As_Finished();
+                isYouShouldNotPressThatButtonTwicePressed = false;
+                Quit();
+            }
+            else
+            {
+                levelIndex++;
+                isYouShouldNotPressThatButtonTwicePressed = false;
+                RetryLevel();
+            }
         }
     }
 
@@ -333,15 +362,15 @@ public class Game_Over_Manager : MonoBehaviour
         if (musicOn)
         {
             musicOn = false;
-            musicImg.sprite = musicBtnOffSprite;
-            musicFromOptionsImg.sprite = musicBtnOffSprite;
+            taggleMusicOn.SetActive(false);
+            tagglemusicOff.SetActive(true);
             PlayerPrefs.SetInt("Sound_Enabled", 0);
         }
         else
         {
             musicOn = true;
-            musicImg.sprite = musicBtnOnSprite;
-            musicFromOptionsImg.sprite = musicBtnOnSprite;
+            taggleMusicOn.SetActive(true);
+            tagglemusicOff.SetActive(false);
             PlayerPrefs.SetInt("Sound_Enabled", 1);
         }
         myMusicPlayer.mute = !musicOn;
@@ -354,24 +383,25 @@ public class Game_Over_Manager : MonoBehaviour
         if (sfxOn)
         {
             sfxOn = false;
-            sfxImg.sprite = sfxBtnOffSprite;
-            sfxFromOptionsImg.sprite = sfxBtnOffSprite;
+            taggleSfxOff.SetActive(true);
+            taggleSfxOn.SetActive(false);
             myAudioSource.mute = true;
         }
         else
         {
             sfxOn = true;
-            sfxImg.sprite = sfxBtnOnSprite;
-            sfxFromOptionsImg.sprite = sfxBtnOnSprite;
+            taggleSfxOff.SetActive(false);
+            taggleSfxOn.SetActive(true);
             myAudioSource.mute = false;
         }
+
     }
 
     public void PauseBtn()
     {
         myAudioSource.PlayOneShot(openingMenuSFX);
         Time.timeScale = 0;
-        myAnim.Play(Game_Over_Animations_Names.Game_Over_Manager_Pause_Collapse_Anim);
+        myAnim.Play(Game_Over_Animations_Names.Pause_Anim);
     }
 
     public void HowToPlayBtn(bool isOpen)
@@ -395,6 +425,7 @@ public class Game_Over_Manager : MonoBehaviour
 
     public void ResumeBtn()
     {
+        Debug.Log("test");
         PausePanel.SetActive(false);
         myAnim.Play(Game_Over_Animations_Names.Game_Over_Manager_Resume_Anim);
         counterImg.sprite = numberSprites[timerCounter];
@@ -425,6 +456,7 @@ public class Game_Over_Manager : MonoBehaviour
             {
                 timerCounter = 2;
                 Time.timeScale = 1;
+                Debug.Log(Time.timeScale);
                 isPaused = false;
             }
             else
@@ -503,15 +535,19 @@ public class Game_Over_Manager : MonoBehaviour
     public void Quit()
     {
         //Here we must adapt each code with the game
-        if (PlayerPrefs.GetInt("Dlc_Is_Open_From_Map", 0) == 0)
+        if (!isYouShouldNotPressThatButtonTwicePressed)
         {
-            StartCoroutine(LoadScene("1-Main_Menu"));
+            isYouShouldNotPressThatButtonTwicePressed = true;
+            Time.timeScale = 1;
+            if (PlayerPrefs.GetInt("Dlc_Is_Open_From_Map", 0) == 0)
+            {
+                StartCoroutine(LoadScene("1-Main_Menu"));
+            }
+            else
+            {
+                StartCoroutine(LoadScene("4_Map_Scene"));
+            }
         }
-        else
-        {
-            StartCoroutine(LoadScene("4_Map_Scene"));
-        }
-
     }
 
     void SaveDataManager(int starsOwned)

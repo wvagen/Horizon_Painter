@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UPersian.Components;
 
 public class Game_Over_Level_Btn : MonoBehaviour
 {
@@ -12,7 +13,11 @@ public class Game_Over_Level_Btn : MonoBehaviour
 
     public GameObject levelIndexGameObject;
 
-    public Sprite lockedSprite;
+    public GameObject locked;
+    public Sprite infinishedLevel;
+    public Sprite finishedLevel;
+    public Sprite currentLevel;
+
     public GameObject[] stars;
 
     Game_Over_Manager gameOverMan;
@@ -21,8 +26,10 @@ public class Game_Over_Level_Btn : MonoBehaviour
 
     bool isLevelReached = false;
     // Start is called before the first frame update
+
     void Start()
     {
+        levelIndexGameObject.GetComponent<RtlText>().text =  (myLevelIndex+1).ToString();
         gameOverMan = FindObjectOfType<Game_Over_Manager>();
         Reached_Level_Stars_Counting_Behaviour();
     }
@@ -35,17 +42,20 @@ public class Game_Over_Level_Btn : MonoBehaviour
             {
                 stars[i].SetActive(true);
             }
+            myImg.sprite = finishedLevel;
             isLevelReached = true;
             isFinishedLevel = true;
         }
         else if (myLevelIndex == 0 || PlayerPrefs.HasKey(Game_Over_Manager.GAME_DATA_KEY + gameOverMan.levelMapGameName + "_" + (myLevelIndex - 1)))
         {
+            myImg.sprite = currentLevel;
             starsPanel.SetActive(false);
             isLevelReached = true;
         }
         else
         {
-            myImg.sprite = lockedSprite;
+            myImg.sprite = infinishedLevel;
+            locked.SetActive(true); 
             starsPanel.SetActive(false);
             levelIndexGameObject.SetActive(false);
             isLevelReached = false;
