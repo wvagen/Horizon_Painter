@@ -7,10 +7,13 @@ public class Painter_Manager : MonoBehaviour
 {
 
     public Game_Over_Manager gameOverMan;
-    public GameObject point,ereaserPoint;
+    public GameObject point, ereaserPoint;
     public Transform pointsContainer, colorsPaletteContainer, pensContainer;
 
     public GameObject dashedLineVertical, dashedLineHorizontal;
+
+    public Image[] switchBtnsImgs;
+    public Color selectedBtnCol, nonSelectedBtnCol;
 
     private List<Painter_ColorBtn> colorBtns = new List<Painter_ColorBtn>();
     private List<Painter_Pen> pens = new List<Painter_Pen>();
@@ -30,6 +33,8 @@ public class Painter_Manager : MonoBehaviour
 
     public bool isPenSelected = true;
 
+    Image selectedBtnImg;
+
     bool isMirrorVertical = false;
     bool isMirrorHorizontal = false;
     bool isMirrorHorizontalAndVertical = false;
@@ -48,6 +53,16 @@ public class Painter_Manager : MonoBehaviour
 
     void Level_Manager()
     {
+        if (selectedBtnImg != null)
+            selectedBtnImg.color = nonSelectedBtnCol;
+
+        dashedLineVertical.SetActive(false);
+        dashedLineHorizontal.SetActive(false);
+
+        isMirrorVertical = false;
+        isMirrorHorizontal = false;
+        isMirrorHorizontalAndVertical = false;
+
         switch (Game_Over_Manager.levelIndex)
         {
             case 1:
@@ -64,6 +79,14 @@ public class Painter_Manager : MonoBehaviour
                 isMirrorHorizontalAndVertical = true;
                 break;
         }
+        selectedBtnImg = switchBtnsImgs[Game_Over_Manager.levelIndex];
+        selectedBtnImg.color = selectedBtnCol;
+    }
+
+    public void Switch_Layouts(int layoutIndex)
+    {
+        Game_Over_Manager.levelIndex = layoutIndex;
+        Level_Manager();
     }
 
     void Set_Colors_Btn_List()
@@ -104,7 +127,7 @@ public class Painter_Manager : MonoBehaviour
 
     private void Update()
     {
-       if (canDraw)
+        if (canDraw)
         {
             currentPoint.transform.position = Get_Mouse_Pos();
             if (isMirrorVertical) currentPoint1.transform.position = Mirror_Effect_Vertical_Pos(Get_Mouse_Pos());
@@ -153,7 +176,7 @@ public class Painter_Manager : MonoBehaviour
         canDraw = true;
 
         if (isPenSelected)
-        currentPoint = Instantiate(point, Vector2.zero, Quaternion.identity, pointsContainer);
+            currentPoint = Instantiate(point, Vector2.zero, Quaternion.identity, pointsContainer);
         else
             currentPoint = Instantiate(ereaserPoint, Vector2.zero, Quaternion.identity, pointsContainer);
 
@@ -241,7 +264,7 @@ public class Painter_Manager : MonoBehaviour
         positions[0] = new Vector2(pointPos.x, pointPos.y);
         positions[1] = new Vector2(pointPos.x * -1, pointPos.y);
         positions[2] = new Vector2(pointPos.x, pointPos.y * -1);
-        positions[3] = new Vector2(pointPos.x * -1, pointPos.y * - 1);
+        positions[3] = new Vector2(pointPos.x * -1, pointPos.y * -1);
 
         return positions;
     }
