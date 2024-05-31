@@ -123,7 +123,7 @@ TextureImporter:
       213: -722052106516049443
     second: Game_Over_SpriteSheet_39
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -143,6 +143,8 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -151,9 +153,9 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -100
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -174,10 +176,14 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -205,6 +211,42 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -1026,6 +1068,45 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Game_Over_SpriteSheet_0: -8608189086718651110
+      Game_Over_SpriteSheet_1: -4118866072263545905
+      Game_Over_SpriteSheet_10: -3891950627489513745
+      Game_Over_SpriteSheet_12: -455847617105081351
+      Game_Over_SpriteSheet_13: -9107963755616214895
+      Game_Over_SpriteSheet_14: 5311149187601940943
+      Game_Over_SpriteSheet_15: 871251063343332551
+      Game_Over_SpriteSheet_16: 947929939527599746
+      Game_Over_SpriteSheet_18: 3281734835838092789
+      Game_Over_SpriteSheet_19: -2781086736878495102
+      Game_Over_SpriteSheet_2: -113429336124490837
+      Game_Over_SpriteSheet_20: -6419807559379061838
+      Game_Over_SpriteSheet_21: 1254746336773859514
+      Game_Over_SpriteSheet_22: 8984182710155184419
+      Game_Over_SpriteSheet_23: 7420860323857443256
+      Game_Over_SpriteSheet_24: 8800475517190472251
+      Game_Over_SpriteSheet_25: -2631151232479170387
+      Game_Over_SpriteSheet_26: 7490168044391297776
+      Game_Over_SpriteSheet_27: -5227569534143359220
+      Game_Over_SpriteSheet_28: 5893283157768306367
+      Game_Over_SpriteSheet_29: 4651603278183616921
+      Game_Over_SpriteSheet_3: 7511140082025257380
+      Game_Over_SpriteSheet_30: -8252804951645991271
+      Game_Over_SpriteSheet_31: -9207485263089703536
+      Game_Over_SpriteSheet_32: 4907353926684783242
+      Game_Over_SpriteSheet_33: 218677416619884679
+      Game_Over_SpriteSheet_34: 9115166912548588354
+      Game_Over_SpriteSheet_35: 1985822610193193845
+      Game_Over_SpriteSheet_36: 7071825018967361977
+      Game_Over_SpriteSheet_37: -1542768213067403963
+      Game_Over_SpriteSheet_38: -8594484632956141012
+      Game_Over_SpriteSheet_39: -722052106516049443
+      Game_Over_SpriteSheet_4: -4422146047905336355
+      Game_Over_SpriteSheet_5: -3245728068095874207
+      Game_Over_SpriteSheet_6: -3011493171178777328
+      Game_Over_SpriteSheet_7: 5491699430422727830
+      Game_Over_SpriteSheet_8: 83331005053361573
+      Game_Over_SpriteSheet_9: -7348132469678243999
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
