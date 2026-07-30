@@ -36,3 +36,4 @@ sysinfo.txt
 *.apk
 *.unitypackage
 /Logs
+Assets/_FeridAroundTheWorld/Localization/LocalizationCore/Tools/chatgptApiKey_dontCommit.json
