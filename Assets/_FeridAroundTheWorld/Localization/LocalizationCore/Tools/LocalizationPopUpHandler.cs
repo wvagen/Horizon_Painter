@@ -396,17 +396,5 @@ namespace com.horizon.LocalizationSystem
     }
 
 
-    [CustomEditor(typeof(LocalizationPopUpHandler))]
-    public class LocalizationPopUpHandlerEditor : Editor
-    {
-        //public override void OnInspectorGUI()
-        //{
-        //    if (GUILayout.Button("Delete Saved Language PlayerPrefs"))
-        //    {
-        //        LocalizationPopUpHandler.DeleteSavedLanguageFromPlayerPrefs();
-        //    }
-        //    GUILayout.Space(10);
-        //    DrawDefaultInspector();
-        //}
-    }
+    
 }
